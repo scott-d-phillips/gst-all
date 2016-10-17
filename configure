@@ -62,7 +62,7 @@ def configure_meson(args):
     os.chdir(build_dir)
 
     try:
-        subprocess.check_call([meson, "../"] + args + get_configs(meson))
+        subprocess.check_call([sys.executable, meson, "../"] + args + get_configs(meson))
     except subprocess.CalledProcessError as e:
         print("EXIT meson return %s" % e.returncode)
         exit(1)
